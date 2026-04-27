@@ -27,11 +27,12 @@ Deep Learning Based Crop Nutrient Deficiency Detection Web Application.
 - JavaScript
 
 ## 📂 Project Structure
-app.py  
-templates/  
-static/  
-models/
-screenshots/
+
+- app.py
+- templates/
+- static/
+- models/
+- screenshots/
 
 ## 📸 Screenshots
 
