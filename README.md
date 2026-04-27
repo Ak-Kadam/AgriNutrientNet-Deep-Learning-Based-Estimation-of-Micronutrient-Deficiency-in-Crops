@@ -31,6 +31,30 @@ app.py
 templates/  
 static/  
 models/
+screenshots/
+
+## 📸 Screenshots
+
+### Index Page
+![Result](screenshots/base.png)
+
+### Home Page
+![Home](screenshots/home.png)
+
+### Detection Page
+![Detect](screenshots/upload.png)
+![Detect](screenshots/detection1.png)
+![Detect](screenshots/capture_image.png)
+![Detect](screenshots/detection2.png)
+
+### About Page
+![Contact](screenshots/about.png)
+
+### SignIn Page
+![Contact](screenshots/signin.png)
+
+### Contact Page
+![Contact](screenshots/contact.png)
 
 ## ⚙️ Run Project
 pip install -r requirements.txt  
