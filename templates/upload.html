@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upload Image | AgriNutrientNet</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css.css') }}">
+</head>
+
+<body class="upload-body">
+
+<!-- Navbar -->
+<header>
+  <div class="container">
+    <h1><a href="{{ url_for('home') }}">🌱AgriNutrientNet</a></h1>
+
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('contact') }}">Need Help?</a></li>
+        <li><a href="{{ url_for('signin') }}">Login</a></li>
+        <li><a href="{{ url_for('signup') }}">Join Now</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Upload Section -->
+<div class="upload-wrapper">
+
+  <div class="upload-card" id="uploadCard">
+
+    <!-- LEFT SIDE -->
+    <div class="left-panel">
+
+      <h2>Upload Plant Image</h2>
+      <p>Detect crop nutrient deficiency using AI</p>
+
+      <form id="predictForm" enctype="multipart/form-data">
+
+        <div class="btn-row">
+          <label for="fileInput" class="action-btn">
+            Upload Image
+          </label>
+
+          <button type="button" class="action-btn" onclick="startCamera()">
+            Open Camera
+          </button>
+        </div>
+
+        <input type="file" id="fileInput" accept="image/*" hidden>
+
+        <!-- Camera -->
+        <video id="video" autoplay playsinline></video>
+
+        <button type="button" id="captureBtn" class="predict-btn capture-btn" onclick="capturePhoto()">
+          Capture
+        </button>
+
+        <!-- Hidden canvas -->
+        <canvas id="canvas"></canvas>
+
+        <!-- Preview -->
+        <img id="previewImage" alt="Preview">
+
+        <!-- Predict -->
+        <button type="submit" class="predict-btn">
+          Predict
+        </button>
+
+      </form>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right-panel" id="resultPanel">
+
+      <h3>Analysis</h3>
+
+      <div class="result-item">
+        <span>Prediction:</span>
+        <p id="predictionText">-</p>
+      </div>
+
+      <div class="result-item">
+        <span>Confidence:</span>
+        <p id="confidenceText">-</p>
+      </div>
+
+      <div class="result-item">
+        <span>Recommendation:</span>
+        <p id="recommendationText">-</p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+const fileInput = document.getElementById("fileInput");
+const video = document.getElementById("video");
+const canvas = document.getElementById("canvas");
+const previewImage = document.getElementById("previewImage");
+const captureBtn = document.getElementById("captureBtn");
+const predictForm = document.getElementById("predictForm");
+const uploadCard = document.getElementById("uploadCard");
+const resultPanel = document.getElementById("resultPanel");
+
+const predictionText = document.getElementById("predictionText");
+const confidenceText = document.getElementById("confidenceText");
+const recommendationText = document.getElementById("recommendationText");
+
+let imageBlob = null;
+
+/* Upload Preview */
+fileInput.addEventListener("change", function () {
+    if (this.files && this.files[0]) {
+
+        imageBlob = this.files[0];
+
+        if(video.srcObject){
+            video.srcObject.getTracks().forEach(track => track.stop());
+        }
+
+        video.style.display = "none";
+        captureBtn.style.display = "none";
+
+        const reader = new FileReader();
+
+        reader.onload = function(e){
+            previewImage.src = e.target.result;
+            previewImage.style.display = "block";
+        };
+
+        reader.readAsDataURL(this.files[0]);
+    }
+});
+
+/* Camera Start */
+async function startCamera(){
+    try{
+        const stream = await navigator.mediaDevices.getUserMedia({
+            video: { facingMode: "environment" }
+        });
+
+        video.srcObject = stream;
+        video.style.display = "block";
+        captureBtn.style.display = "block";
+        previewImage.style.display = "none";
+
+    }catch(error){
+        alert("Camera access denied or unavailable.");
+    }
+}
+
+/* Capture */
+function capturePhoto(){
+
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+
+    ctx.drawImage(video, 0, 0);
+
+    canvas.toBlob(function(blob){
+        imageBlob = blob;
+    }, "image/jpeg");
+
+    previewImage.src = canvas.toDataURL("image/jpeg");
+    previewImage.style.display = "block";
+
+    video.srcObject.getTracks().forEach(track => track.stop());
+    video.style.display = "none";
+    captureBtn.style.display = "none";
+}
+
+/* Predict */
+predictForm.addEventListener("submit", async function(e){
+
+    e.preventDefault();
+
+    if(!imageBlob){
+        alert("Please upload or capture image first.");
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", imageBlob);
+
+    predictionText.innerText = "Processing...";
+    confidenceText.innerText = "-";
+    recommendationText.innerText = "-";
+
+    try{
+
+        const response = await fetch("/predict", {
+            method:"POST",
+            body:formData
+        });
+
+        const data = await response.json();
+
+        uploadCard.classList.add("expanded");
+        resultPanel.style.display = "block";
+
+        predictionText.innerText = data.prediction;
+        confidenceText.innerText = data.confidence;
+        recommendationText.innerText = data.recommendation;
+
+    }catch(error){
+
+        predictionText.innerText = "Prediction failed";
+    }
+
+});
+</script>
+
+</body>
+</html>

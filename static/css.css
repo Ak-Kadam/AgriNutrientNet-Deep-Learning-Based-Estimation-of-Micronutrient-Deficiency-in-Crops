@@ -1,0 +1,1232 @@
+/* ---------- ROOT ---------- */
+:root{
+  --bg-primary:#080a0e;
+  --bg-secondary:#282d3a;
+  --text-primary:#e2e8f0;
+  --text-secondary:#a0aec0;
+
+  --green1:#58e39a;
+  --green2:#35c978;
+  --green3:#228f59;
+
+  --glass:rgba(255,255,255,0.12);
+}
+
+/* ---------- RESET ---------- */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  color:#fff;
+  min-height:100vh;
+}
+
+/* ===================================================
+   NAVBAR
+=================================================== */
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  background:rgba(0,0,0,0.55);
+  backdrop-filter:blur(8px);
+}
+
+header .container{
+  width:90%;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 0;
+}
+
+header h1 a{
+  color:#fff;
+  text-decoration:none;
+  font-size:1.55rem;
+  font-weight:700;
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:28px;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.25s ease;
+}
+
+nav a:hover{
+  color:#b7ffd8;
+}
+
+/* ===================================================
+   HERO / HOME
+=================================================== */
+#hero,
+.home-body{
+  min-height:100vh;
+  background:url("Bg.jpeg") center/cover no-repeat;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position:relative;
+}
+
+#hero::before,
+.home-body::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:800px;
+  padding:2rem;
+}
+
+.hero-content h1{
+  font-size:48px;
+  margin-bottom:18px;
+}
+
+.hero-content p{
+  font-size:20px;
+  margin-bottom:28px;
+}
+
+.btn-predict{
+  display:inline-block;
+  padding:14px 34px;
+  border-radius:10px;
+  text-decoration:none;
+  color:#fff;
+  font-weight:700;
+  background:linear-gradient(135deg,var(--green1),var(--green2),var(--green3));
+}
+
+.btn-predict:hover{
+  transform:translateY(-2px);
+}
+
+/* ===================================================
+   ABOUT PAGE
+=================================================== */
+.about-body{
+  min-height:100vh;
+  background:url("L11.jpeg") center/cover no-repeat;
+  padding-top:110px;
+}
+
+.about-hero,
+.about-content{
+  width:90%;
+  max-width:1100px;
+  margin:auto;
+  margin-bottom:30px;
+  padding:2.5rem;
+  border-radius:20px;
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(14px);
+}
+
+.about-hero{
+  text-align:center;
+}
+
+.about-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.about-card{
+  background:rgba(0,0,0,0.35);
+  border-radius:14px;
+  overflow:hidden;
+}
+
+.about-card img{
+  width:100%;
+  height:150px;
+  object-fit:cover;
+}
+
+.about-card h4,
+.about-card p{
+  padding:14px;
+}
+
+/* ===================================================
+   CONTACT PAGE
+=================================================== */
+.contact-body{
+  min-height:100vh;
+  background:url("L14.jpg") center/cover no-repeat;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding-top:100px;
+}
+
+.contact-card{
+  width:90%;
+  max-width:1000px;
+  padding:2.5rem;
+  border-radius:20px;
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(14px);
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select{
+  width:100%;
+  padding:12px;
+  margin-bottom:12px;
+  border:none;
+  border-radius:10px;
+}
+
+.contact-form button{
+  width:100%;
+  padding:13px;
+  border:none;
+  border-radius:10px;
+  color:#fff;
+  font-weight:700;
+  background:linear-gradient(135deg,var(--green1),var(--green2),var(--green3));
+}
+
+/* ===================================================
+   LOGIN / SIGNUP
+=================================================== */
+.auth-body{
+  min-height:100vh;
+  background:url("L5.jpeg") center/cover no-repeat;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.auth-card{
+  width:92%;
+  max-width:390px;
+  padding:2.3rem;
+  border-radius:18px;
+  background:rgba(255,255,255,0.14);
+  backdrop-filter:blur(14px);
+}
+
+.auth-card input{
+  width:100%;
+  padding:12px;
+  margin-bottom:12px;
+  border:none;
+  border-radius:10px;
+}
+
+.auth-card button{
+  width:100%;
+  padding:13px;
+  border:none;
+  border-radius:10px;
+  color:#fff;
+  font-weight:700;
+  background:linear-gradient(135deg,var(--green1),var(--green2),var(--green3));
+}
+
+/* ===================================================
+   UPLOAD PAGE
+=================================================== */
+.upload-body{
+  min-height:100vh;
+  background:url("L13.jpg") center/cover no-repeat;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:100px 20px 20px;
+  position:relative;
+}
+
+.upload-body::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.52);
+}
+
+.upload-wrapper{
+  position:relative;
+  z-index:2;
+  width:100%;
+  display:flex;
+  justify-content:center;
+}
+
+.upload-card{
+  width:460px;
+  padding:30px;
+  border-radius:26px;
+  background:var(--glass);
+  backdrop-filter:blur(16px);
+  box-shadow:0 10px 35px rgba(0,0,0,0.28);
+  transition:0.35s ease;
+}
+
+/* expanded after prediction */
+.upload-card.expanded{
+  width:1100px;
+  max-width:95%;
+  display:flex;
+  gap:34px;
+  align-items:center;
+}
+
+/* LEFT PANEL */
+.left-panel{
+  flex:1.35;
+}
+
+.left-panel h2{
+  text-align:center;
+  font-size:2.4rem;
+  margin-bottom:8px;
+}
+
+.left-panel p{
+  text-align:center;
+  margin-bottom:24px;
+  opacity:0.94;
+  font-size:1rem;
+}
+
+/* BUTTON ROW */
+.btn-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+/* ALL BUTTONS */
+.action-btn,
+.predict-btn,
+.capture-btn{
+  width:100%;
+  height:58px;
+  border:none;
+  border-radius:14px;
+  color:#fff;
+  font-size:1.08rem;
+  font-weight:700;
+  cursor:pointer;
+  background:linear-gradient(135deg,var(--green1),var(--green2),var(--green3));
+  box-shadow:0 10px 22px rgba(0,0,0,0.18);
+  transition:0.25s ease;
+}
+
+.action-btn:hover,
+.predict-btn:hover,
+.capture-btn:hover{
+  transform:translateY(-3px) scale(1.02);
+}
+
+.predict-btn{
+  margin-top:18px;
+}
+
+.capture-btn{
+  margin-top:14px;
+  display:none;
+}
+
+/* MEDIA */
+#previewImage,
+#video{
+  width:100%;
+  max-height:300px;
+  object-fit:cover;
+  border-radius:18px;
+  margin-top:14px;
+  display:none;
+}
+
+#canvas{
+  display:none;
+}
+
+/* RIGHT PANEL */
+.right-panel{
+  flex:1;
+  display:none;
+  border-left:1px solid rgba(255,255,255,0.14);
+  padding-left:30px;
+}
+
+.upload-card.expanded .right-panel{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.right-panel h3{
+  font-size:3rem;
+  margin-bottom:28px;
+}
+
+.result-item{
+  margin-bottom:30px;
+}
+
+.result-item span{
+  display:block;
+  font-size:1.55rem;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.result-item p{
+  font-size:1.32rem;
+  line-height:1.45;
+}
+
+/* ===================================================
+   FOOTER
+=================================================== */
+footer{
+  text-align:center;
+  padding:1.3rem;
+  background:#1f2937;
+}
+
+/* ===================================================
+   RESPONSIVE
+=================================================== */
+@media(max-width:980px){
+
+.upload-card.expanded{
+  width:100%;
+  display:block;
+}
+
+.right-panel{
+  border-left:none;
+  border-top:1px solid rgba(255,255,255,0.15);
+  padding-left:0;
+  padding-top:28px;
+  margin-top:28px;
+}
+
+.upload-card.expanded .right-panel{
+  display:block;
+}
+
+.contact-grid{
+  grid-template-columns:1fr;
+}
+}
+
+@media(max-width:650px){
+
+nav ul{
+  gap:14px;
+}
+
+header h1 a{
+  font-size:1.2rem;
+}
+
+.upload-card{
+  width:100%;
+  padding:24px;
+}
+
+.btn-row{
+  grid-template-columns:1fr;
+}
+
+.left-panel h2{
+  font-size:2rem;
+}
+
+.right-panel h3{
+  font-size:2.2rem;
+}
+
+.result-item span{
+  font-size:1.2rem;
+}
+
+.result-item p{
+  font-size:1rem;
+}
+}
+/* =================================
+   FINAL PERFECTION PATCH
+================================= */
+
+/* 1. Fix Upload/Open buttons text perfectly centered */
+.btn-row label,
+.btn-row .action-btn,
+.btn-row button,
+.custom-file-upload{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    text-align:center !important;
+
+    padding:0 !important;
+    line-height:1 !important;
+
+    font-size:16px !important;
+    font-weight:700 !important;
+}
+
+/* remove floating text issue */
+.custom-file-upload span,
+.btn-row label span{
+    width:100%;
+    text-align:center;
+}
+
+/* 2. Better heading size */
+.left-panel h2{
+    font-size:2.05rem !important;
+    font-weight:700 !important;
+    margin-bottom:8px !important;
+    line-height:1.2 !important;
+}
+
+/* subtitle */
+.left-panel p{
+    font-size:0.98rem !important;
+    margin-bottom:22px !important;
+}
+
+/* 3. Predict button same visual balance */
+.predict-btn{
+    font-size:16px !important;
+    font-weight:700 !important;
+}
+
+/* 4. Keep expanded result heading balanced */
+.right-panel h3{
+    font-size:2.55rem !important;
+}
+
+/* 5. Safety alignment */
+.btn-row{
+    align-items:center !important;
+}
+/* ===============================
+   FINAL FIT SCREEN PATCH
+   (No Scrollbar + Slight Font Reduction)
+=============================== */
+
+/* remove page scrollbar */
+html,
+body{
+    height:100%;
+    overflow:hidden !important;
+}
+
+/* upload page fit exactly viewport */
+.upload-body{
+    min-height:100vh !important;
+    height:100vh !important;
+
+    padding:88px 18px 14px !important;   /* less top/bottom space */
+    overflow:hidden !important;
+}
+
+/* card height balanced inside screen */
+.upload-card.expanded{
+    max-height:calc(100vh - 105px) !important;
+    overflow:hidden !important;
+    padding:24px !important;
+    gap:28px !important;
+}
+
+/* image slightly shorter */
+#previewImage,
+#video{
+    max-height:300px !important;
+}
+
+/* slightly smaller fonts */
+.left-panel h2{
+    font-size:1.95rem !important;
+}
+
+.left-panel p{
+    font-size:0.95rem !important;
+}
+
+.right-panel h3{
+    font-size:2.35rem !important;
+}
+
+.result-item span{
+    font-size:1.35rem !important;
+}
+
+.result-item p{
+    font-size:1.12rem !important;
+    line-height:1.35 !important;
+}
+
+/* buttons balanced */
+.action-btn,
+.predict-btn{
+    height:54px !important;
+    font-size:16px !important;
+}
+
+/* =========================================================
+   REFINED SURGICAL PATCH v2
+   Replace previous surgical patch with this one
+   Smaller fonts | Restore black text where needed
+   Upload/About untouched
+   ========================================================= */
+
+
+/* =====================================================
+   HOME / BASE PAGE
+===================================================== */
+#hero,
+.home-body #hero{
+    min-height:100vh !important;
+}
+
+.hero-content{
+    max-width:860px !important;
+    padding:2rem !important;
+}
+
+.hero-content h1{
+    font-size:3.35rem !important;
+    line-height:1.15 !important;
+    margin-bottom:16px !important;
+}
+
+.hero-content p{
+    font-size:1.28rem !important;
+    margin-bottom:24px !important;
+}
+
+.btn-predict{
+    padding:13px 30px !important;
+    font-size:0.98rem !important;
+}
+
+
+/* =====================================================
+   GALLERY PAGE
+===================================================== */
+.card {
+  padding: 2.5rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.35);
+}
+
+.card h2 {
+  margin-bottom: 1rem;
+  color: var(--bg-primary);
+}
+
+.card p {
+  color: var(--bg-primary);
+  margin-bottom: 2rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+.gallery-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+
+/* =====================================================
+   SIGN IN / SIGN UP
+===================================================== */
+.auth-card{
+    width:92% !important;
+    max-width:360px !important;
+    padding:2rem !important;
+    border-radius:18px !important;
+    color:#000 !important;
+}
+
+.auth-card h2{
+    font-size:1.8rem !important;
+    margin-bottom:6px !important;
+    color:#000 !important;
+}
+
+.auth-card p{
+    font-size:0.92rem !important;
+    margin-bottom:14px !important;
+    color:#000 !important;
+}
+
+.auth-card input{
+    padding:12px !important;
+    margin-bottom:12px !important;
+    font-size:0.96rem !important;
+}
+
+.auth-card button{
+    padding:12px !important;
+    font-size:0.96rem !important;
+}
+
+.switch{
+    font-size:0.88rem !important;
+    color:#000 !important;
+}
+
+.switch a{
+    color:#2f855a !important;
+}
+/* =====================================================
+   JOIN / SIGN UP RECOVERY PATCH
+   paste BELOW current auth-card css
+   restores previous compact look safely
+===================================================== */
+
+.auth-card{
+    width:90% !important;
+    max-width:360px !important;
+    padding:2rem !important;
+    border-radius:18px !important;
+    background:rgba(255,255,255,0.18) !important;
+    backdrop-filter:blur(14px) !important;
+    -webkit-backdrop-filter:blur(14px) !important;
+    box-shadow:0 10px 40px rgba(0,0,0,0.30) !important;
+    color:#000 !important;
+}
+
+.auth-card h2{
+    text-align:center !important;
+    font-size:1.8rem !important;
+    margin-bottom:0.5rem !important;
+    color:#000 !important;
+}
+
+.auth-card p{
+    text-align:center !important;
+    font-size:0.90rem !important;
+    margin-bottom:1.5rem !important;
+    line-height:1.4 !important;
+    color:#000 !important;
+}
+
+.auth-card input{
+    width:100% !important;
+    padding:12px !important;
+    margin-bottom:1rem !important;
+    border:none !important;
+    outline:none !important;
+    border-radius:8px !important;
+    font-size:0.96rem !important;
+}
+
+.auth-card button{
+    width:100% !important;
+    padding:12px !important;
+    border:none !important;
+    border-radius:8px !important;
+    background:#6fcf97 !important;
+    font-size:0.96rem !important;
+    font-weight:700 !important;
+    cursor:pointer !important;
+    color:#000 !important;
+}
+
+.auth-card button:hover{
+    background:#57b883 !important;
+}
+
+.switch{
+    margin-top:1rem !important;
+    text-align:center !important;
+    font-size:0.85rem !important;
+    color:#000 !important;
+}
+
+.switch a{
+    color:#9effc8 !important;
+    text-decoration:none !important;
+    font-weight:600 !important;
+}
+
+/* =====================================================
+   CONTACT PAGE FINAL ALIGNMENT PATCH
+   issue = card width + right details section spacing
+   Replace ONLY contact recovery block
+===================================================== */
+
+.contact-card{
+    width:74% !important;          /* narrower like original */
+    max-width:970px !important;
+    margin:28px auto !important;
+    padding:0 !important;
+    border-radius:18px !important;
+    overflow:hidden !important;
+
+    background:rgba(255,255,255,0.08) !important;
+    backdrop-filter:blur(8px) !important;
+    -webkit-backdrop-filter:blur(8px) !important;
+}
+
+/* title strip */
+.contact-card h2{
+    margin:0 !important;
+    padding:18px 0 14px !important;
+    text-align:center !important;
+    font-size:2rem !important;
+    letter-spacing:4px !important;
+    font-weight:700 !important;
+    color:#000 !important;
+}
+
+/* two columns */
+.contact-grid{
+    display:grid !important;
+    grid-template-columns:58% 42% !important;   /* exact balance */
+    gap:18px !important;                        /* smaller gap */
+    padding:18px 34px 30px !important;
+    align-items:start !important;
+}
+
+/* left + right headings */
+.contact-form h4,
+.contact-details h4{
+    font-size:1rem !important;
+    margin:0 0 12px !important;
+    font-weight:700 !important;
+    letter-spacing:1px !important;
+    color:#000 !important;
+}
+
+/* form fields */
+.contact-form input,
+.contact-form select,
+.contact-form textarea{
+    width:100% !important;
+    background:#fff !important;
+    border:none !important;
+    border-radius:10px !important;
+    padding:12px 14px !important;
+    margin-bottom:14px !important;
+    font-size:0.94rem !important;
+    color:#000 !important;
+}
+
+.contact-form textarea{
+    min-height:120px !important;
+    resize:none !important;
+}
+
+/* button */
+.contact-form button{
+    width:100% !important;
+    border:none !important;
+    border-radius:10px !important;
+    padding:12px !important;
+    font-size:0.95rem !important;
+    font-weight:700 !important;
+    color:#000 !important;
+    background:linear-gradient(90deg,#63e6be,#2fb36d) !important;
+}
+
+/* details side */
+.contact-details{
+    padding-top:2px !important;
+}
+
+.contact-details p{
+    margin:0 0 18px !important;
+    font-size:0.95rem !important;
+    line-height:1.42 !important;
+    color:#000 !important;
+}
+
+.contact-details strong{
+    display:block !important;
+    margin-bottom:4px !important;
+    font-size:0.95rem !important;
+    color:#000 !important;
+}
+
+/* ===== CONTACT FINAL MICRO FIX ===== */
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea,
+.contact-form button{
+    max-width: 390px !important;   /* restore original field width */
+}
+
+.contact-details h4{
+    margin-bottom: 8px !important;
+}
+
+.contact-details p{
+    margin: 0 0 14px !important;
+    line-height: 1.28 !important;
+}
+
+.contact-details strong{
+    margin-bottom: 2px !important;
+}
+
+/* ===== CONTACT TIGHT GAP PATCH v2 ===== */
+/* paste BELOW previous patch */
+
+.contact-grid{
+    grid-template-columns: 57.5% 42.5% !important;
+    column-gap: 0px !important;
+    gap: 0px !important;
+}
+
+.contact-form{
+    padding-right: 0 !important;
+    margin-right: -8px !important;
+}
+
+.contact-details{
+    padding-left: 0 !important;
+    margin-left: -18px !important;   /* pull details section left */
+}
+/* ===== CONTACT PROPER CENTER GAP FIX ===== */
+/* paste BELOW all old patches */
+
+/* restore equal columns like original css */
+.contact-grid{
+    display:grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 14px !important;              /* smaller than old 2.5rem */
+    column-gap: 14px !important;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+}
+
+/* keep left form in natural place */
+.contact-form{
+    margin:0 !important;
+    padding-right:0 !important;
+}
+
+/* move only details section left (not form opposite side) */
+.contact-details{
+    margin-left: -28px !important;
+    padding-left: 0 !important;
+}
+
+/* keep fields normal width */
+.contact-form input,
+.contact-form select,
+.contact-form textarea,
+.contact-form button{
+    width:100% !important;
+    max-width:420px !important;
+}
+/* move details section a little more right */
+.contact-details{
+    margin-left: 24px !important;   /* slight more right */
+    padding-left: 0 !important;
+}
+
+.contact-grid{
+    gap: 30px !important;
+    column-gap: 30px !important;
+}
+
+
+/* mobile */
+@media(max-width:768px){
+
+.contact-card{
+    width:94% !important;
+}
+
+.contact-grid{
+    grid-template-columns:1fr !important;
+    gap:24px !important;
+    padding:20px !important;
+}
+
+.contact-card h2{
+    font-size:1.6rem !important;
+    letter-spacing:2px !important;
+}
+}
+
+
+/* =====================================================
+   NAVBAR NORMAL SIZE
+===================================================== */
+header .container{
+    padding:14px 0 !important;
+}
+
+header h1 a{
+    font-size:1.35rem !important;
+}
+
+nav a{
+    font-size:0.95rem !important;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media(max-width:768px){
+
+.hero-content h1{
+    font-size:2.45rem !important;
+}
+
+.hero-content p{
+    font-size:1rem !important;
+}
+
+.gallery-grid{
+    grid-template-columns:1fr 1fr !important;
+}
+
+.contact-grid{
+    grid-template-columns:1fr !important;
+}
+}
+
+@media(max-width:520px){
+
+.gallery-grid{
+    grid-template-columns:1fr !important;
+}
+
+.auth-card,
+.contact-card,
+.card{
+    width:95% !important;
+}
+}
+
+/* =====================================================
+   GALLERY PAGE RECOVERY PATCH
+   Use ONLY for Home/Gallery section
+   Paste at very bottom of css(7).css
+   Fixes wrong dark overlay + restores original gallery card
+   No conflict with contact/auth/upload pages
+===================================================== */
+
+/* keep home page scrollable again */
+html,
+body{
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+}
+
+/* HOME page background should NOT behave like hero overlay */
+.home-body{
+    display:block !important;
+    min-height:100vh !important;
+    padding-top:90px !important;
+    position:relative !important;
+    background:url("Bg.jpeg") center/cover no-repeat !important;
+}
+
+/* remove mistaken black overlay on gallery page */
+.home-body::before{
+    content:none !important;
+}
+
+/* restore content wrapper/card like original css */
+.home-body .card{
+    width:90% !important;
+    max-width:1470px !important;
+    margin:0 auto 3rem !important;
+    padding:2.5rem !important;
+
+    background:rgba(255,255,255,0.10) !important;
+    backdrop-filter:blur(2px) !important;
+    -webkit-backdrop-filter:blur(2px) !important;
+
+    box-shadow:none !important;
+    border-radius:0 !important;
+}
+
+/* title + paragraph exactly readable */
+.home-body .card h2{
+    color:#000 !important;
+    font-size:1.05rem !important;
+    margin-bottom:1rem !important;
+}
+
+.home-body .card p{
+    color:#000 !important;
+    font-size:0.95rem !important;
+    line-height:1.6 !important;
+    margin-bottom:2rem !important;
+}
+
+/* gallery heading */
+.home-body .card h3{
+    color:#000 !important;
+    font-size:1.15rem !important;
+    margin-bottom:1rem !important;
+}
+
+/* gallery layout like old css */
+.home-body .gallery-grid{
+    display:grid !important;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr)) !important;
+    gap:20px !important;
+}
+
+/* image cards */
+.home-body .gallery-item img{
+    width:100% !important;
+    height:220px !important;
+    object-fit:cover !important;
+    border-radius:12px !important;
+    opacity:1 !important;
+    filter:none !important;
+    transition:transform .3s ease, box-shadow .3s ease !important;
+}
+
+.home-body .gallery-item img:hover{
+    transform:scale(1.05) !important;
+    box-shadow:0 10px 25px rgba(0,0,0,.35) !important;
+}
+
+/* responsive */
+@media (max-width:768px){
+    .home-body .gallery-grid{
+        grid-template-columns:1fr 1fr !important;
+    }
+}
+
+@media (max-width:520px){
+    .home-body .gallery-grid{
+        grid-template-columns:1fr !important;
+    }
+
+    .home-body .card{
+        width:95% !important;
+        padding:1.5rem !important;
+    }
+}
+
+/* =====================================================
+   FINAL MICRO PATCH
+   Fix unwanted scrolling + slightly bigger gallery text
+   Paste at very bottom of CSS
+===================================================== */
+
+/* prevent horizontal scroll everywhere */
+html,
+body{
+    overflow-x:hidden !important;
+}
+
+/* pages that should not scroll unless content exceeds screen */
+.about-body,
+.contact-body,
+.auth-body,
+.upload-body{
+    min-height:100vh !important;
+    overflow-y:hidden !important;
+}
+
+/* base / hero landing page no extra scroll */
+#hero{
+    min-height:100vh !important;
+    overflow:hidden !important;
+}
+
+/* gallery page text slightly bigger */
+.home-body .card h2{
+    font-size:1.5rem !important;
+}
+
+.home-body .card p{
+    font-size:1.03rem !important;
+    line-height:1.72 !important;
+}
+
+.home-body .card h3{
+    font-size:1.45rem !important;
+    margin-bottom:1.2rem !important;
+}
+/* =====================================================
+   BASE PAGE NO-SCROLL PATCH
+   Paste at very bottom of CSS
+===================================================== */
+
+/* main landing/base page */
+body:has(.hero-section),
+body:has(#hero),
+body:has(.landing-page){
+    height:100vh !important;
+    min-height:100vh !important;
+    overflow:hidden !important;
+}
+
+/* common hero wrappers */
+.hero-section,
+#hero,
+.landing-page{
+    height:100vh !important;
+    min-height:100vh !important;
+    overflow:hidden !important;
+    margin:0 !important;
+}
+
+/* if navbar pushes height */
+.hero-section > *,
+#hero > *{
+    max-height:100vh !important;
+}

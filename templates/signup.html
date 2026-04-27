@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up | AgriNutrientNet</title>
+
+  <!-- ✅ FIXED CSS PATHS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='auth.css') }}">
+</head>
+
+<body class="auth-body">
+
+<!-- ✅ NAVBAR -->
+<header>
+  <div class="container">
+    <h1><a href="{{ url_for('base') }}">🌱AgriNutrientNet</a></h1>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('upload') }}">Detect</a></li>
+        <li><a href="{{ url_for('contact') }}">Need Help?</a></li>
+        <li><a href="{{ url_for('signin') }}">Login</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ✅ SIGN UP CARD -->
+<div class="auth-card">
+  <h2>Create Account</h2>
+  <p>Join smart plant health monitoring system 🌱</p>
+
+ <form method="POST" action="{{ url_for('signup') }}">
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="text" name="address" placeholder="Address" required>
+    <input type="text" name="contact" placeholder="Contact" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+
+    <button type="submit">Sign Up</button>
+
+    <p class="switch">
+        Already have an account?
+        <a href="{{ url_for('signin') }}">Sign In</a>
+    </p>
+</form>
+</div>
+
+</body>
+</html>

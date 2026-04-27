@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us | AgriNutrientNet</title>
+
+  <!-- ✅ FIXED CSS PATHS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='contact.css') }}">
+</head>
+
+<body class="contact-body">
+
+<!-- ✅ NAVBAR -->
+<header>
+  <div class="container">
+    <h1><a href="{{ url_for('home') }}">🌱AgriNutrientNet</a></h1>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('upload') }}">Detect</a></li>
+        <li><a href="{{ url_for('signin') }}">Login</a></li>
+        <li><a href="{{ url_for('signup') }}">Join Now</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ✅ CONTACT CARD -->
+<div class="contact-card">
+
+  <h2>CONTACT US</h2>
+
+  <div class="contact-grid">
+
+    <!-- LEFT SIDE : FORM -->
+    <div class="contact-form">
+      <h4>ONLINE INQUIRY</h4>
+
+      <form method="POST" action="{{ url_for('contact') }}">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="text" name="phone" placeholder="Phone">
+
+    <select name="interest">
+        <option value="">Select an Interest</option>
+        <option value="Crop Analysis">Crop Analysis</option>
+        <option value="Nutrient Detection">Nutrient Detection</option>
+        <option value="Expertise Solutions">Expertise Solutions</option>
+    </select>
+
+    <textarea name="message" placeholder="Message"></textarea>
+
+    <button type="submit">Send Message</button>
+</form>
+    </div>
+
+    <!-- RIGHT SIDE : DETAILS -->
+    <div class="contact-details">
+      <h4>CONTACT DETAILS</h4>
+
+      <p><strong>Email:</strong><br> agrinutrientnet@gmail.com</p>
+      <p><strong>Phone:</strong><br> +91 98765 43210</p>
+
+      <p><strong>Location:</strong><br>
+        Smart Agriculture Lab<br>
+        Maharashtra, India
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

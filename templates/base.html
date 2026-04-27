@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌱AgriNutrientNet</title>
+  
+  <!-- ✅ FIXED CSS PATH -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css.css') }}">
+  
+  <!-- External CDN (no change needed) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>
+        <a href="{{ url_for('base') }}">🌱AgriNutrientNet</a>
+      </h1>
+
+      <nav>
+        <ul>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
+          <li><a href="{{ url_for('upload') }}">Detect</a></li>
+          <li><a href="{{ url_for('contact') }}">Need Help?</a></li>
+          <li><a href="{{ url_for('signin') }}">Login</a></li>
+          <li><a href="{{ url_for('signup') }}">Join Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section id="hero">
+        <div class="hero-content">
+          <h1>Welcome To AgriNutrientNet</h1>
+          <p>Deep Learning Based Micronutrient Deficiency Detection in Crops</p>
+
+          <!-- ✅ FIXED LINK -->
+          <a href="{{ url_for('home') }}" class="btn-predict">Explore</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Plant Disease Detection. All rights reserved.</p>
+  </footer>
+</body>
+</html>

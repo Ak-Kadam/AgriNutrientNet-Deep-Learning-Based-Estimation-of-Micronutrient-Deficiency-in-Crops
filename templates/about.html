@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Us | AgriNutrientNet</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+</head>
+
+
+<body class="about-body">
+
+<!-- ✅ NAVBAR -->
+<header>
+  <div class="container">
+    <h1><a href="{{ url_for('base') }}">🌱AgriNutrientNet</a></h1>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('upload') }}">Detect</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        <li><a href="{{ url_for('signin') }}">Sign In</a></li>
+        <li><a href="{{ url_for('signup') }}">Join Now</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ✅ HERO SECTION -->
+<section class="about-hero">
+  <h2>ABOUT AGRINUTRIENTNET</h2>
+  <p>
+    Our Plant Nutrient Deficiency Detection System is an AI-powered web application designed to help farmers,
+    gardeners, and researchers identify plant deficiencies quickly and accurately.
+  </p>
+</section>
+
+<!-- ✅ WHO WE ARE -->
+<section class="about-content">
+
+  <h3>WHO WE ARE?</h3>
+
+  <div class="about-grid">
+
+    <div class="about-card">
+      <img src="{{ url_for('static', filename='L1.jpeg') }}" alt="">
+      <h4>Project Vision</h4>
+      <p>
+        To empower farmers with fast, affordable and accurate nutrient
+        deficiency detection.
+      </p>
+    </div>
+
+    <div class="about-card">
+      <img src="{{ url_for('static', filename='L2.jpeg') }}" alt="">
+      <h4>Technology</h4>
+      <p>
+        Deep learning models like CNN analyze leaf images to predict
+        deficiencies.
+      </p>
+    </div>
+
+    <div class="about-card">
+      <img src="{{ url_for('static', filename='L3.jpeg') }}" alt="">
+      <h4>Impact</h4>
+      <p>
+        Supporting sustainable agriculture and increasing crop productivity.
+      </p>
+    </div>
+
+    <div class="about-card">
+      <img src="{{ url_for('static', filename='L4.jpeg') }}" alt="">
+      <h4>Future Scope</h4>
+      <p>
+        Expanding to multi-crop, real-time mobile-based detection systems.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+</body>
+</html>
